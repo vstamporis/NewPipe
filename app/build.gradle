@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'checkstyle'
+apply plugin: 'gr.aueb.android.barista-plugin'
 
 android {
     compileSdkVersion 29
