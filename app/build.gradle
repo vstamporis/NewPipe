@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'checkstyle'
 apply plugin: 'gr.aueb.android.barista-plugin'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 29
@@ -31,6 +32,7 @@ android {
         debug {
             multiDexEnabled true
             debuggable true
+            testCoverageEnabled true
 
             // suffix the app id and the app name with git branch name
             def workingBranch = getGitWorkingBranch()
@@ -224,4 +226,27 @@ static String getGitWorkingBranch() {
         // git was not found
         return ""
     }
+}
+
+task jacocoTestReport(type: JacocoReport) {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class',
+                      '**/R$*.class',
+                      '**/BuildConfig.*',
+                      '**/Manifest*.*',
+                      '**/*Test*.*',
+                      'android/**/*.*',
+                      '**/data/models/*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/javac/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: "$project.rootDir", includes: [
+            "coverage.exec"
+    ])
 }
