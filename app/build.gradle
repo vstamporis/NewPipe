@@ -39,10 +39,10 @@ android {
             def normalizedWorkingBranch = workingBranch.replaceAll("[^A-Za-z]+", "").toLowerCase()
             if (normalizedWorkingBranch.isEmpty() || workingBranch == "master" || workingBranch == "dev") {
                 // default values when branch name could not be determined or is master or dev
-                applicationIdSuffix ".debug"
+//                applicationIdSuffix ""
                 resValue "string", "app_name", "NewPipe Debug"
             } else {
-                applicationIdSuffix ".debug." + normalizedWorkingBranch
+//                applicationIdSuffix ".debug." + normalizedWorkingBranch
                 resValue "string", "app_name", "NewPipe " + workingBranch
                 archivesBaseName = 'NewPipe_' + normalizedWorkingBranch
             }
