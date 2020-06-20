@@ -51,12 +51,20 @@
         <activity
             android:name=".player.BackgroundPlayerActivity"
             android:launchMode="singleTask"
-            android:label="@string/title_activity_background_player"/>
+            android:label="@string/title_activity_background_player">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".player.PopupVideoPlayerActivity"
             android:launchMode="singleTask"
-            android:label="@string/title_activity_popup_player"/>
+            android:label="@string/title_activity_popup_player">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".player.PopupVideoPlayer"
@@ -67,15 +75,27 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/VideoPlayerTheme"/>
+            android:theme="@style/VideoPlayerTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".settings.SettingsActivity"
-            android:label="@string/settings"/>
+            android:label="@string/settings">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".about.AboutActivity"
-            android:label="@string/title_activity_about"/>
+            android:label="@string/title_activity_about">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".local.subscription.services.SubscriptionsImportService"/>
         <service android:name=".local.subscription.services.SubscriptionsExportService"/>
@@ -90,20 +110,33 @@
                 <action android:name="info.guardianproject.panic.action.TRIGGER"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.MONKEY" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".ExitActivity"
             android:label="@string/general_error"
-            android:theme="@android:style/Theme.NoDisplay"/>
-        <activity android:name=".report.ErrorActivity"/>
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".report.ErrorActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <!-- giga get related -->
         <activity
             android:name=".download.DownloadActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <service android:name="us.shandian.giga.service.DownloadManagerService"/>
 
@@ -114,12 +147,17 @@
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".ReCaptchaActivity"
-            android:label="@string/recaptcha"/>
+            android:label="@string/recaptcha">
+            <intent-filter>
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -147,6 +185,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
+                <category android:name="android.intent.category.MONKEY" />
+
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
                 <data android:host="youtube.com"/>
@@ -173,6 +213,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
+                <category android:name="android.intent.category.MONKEY" />
+
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
                 <data android:host="youtu.be"/>
@@ -185,6 +227,8 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
+
+                <category android:name="android.intent.category.MONKEY" />
 
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
@@ -212,6 +256,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
+                <category android:name="android.intent.category.MONKEY" />
+
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
                 <data android:host="hooktube.com"/>
@@ -233,6 +279,8 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
+
+                <category android:name="android.intent.category.MONKEY" />
 
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
@@ -263,6 +311,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
+                <category android:name="android.intent.category.MONKEY" />
+
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
                 <data android:host="soundcloud.com"/>
@@ -275,6 +325,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.MONKEY" />
                 <data android:mimeType="text/plain"/>
             </intent-filter>
 
@@ -286,6 +337,8 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
+
+                <category android:name="android.intent.category.MONKEY" />
 
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
