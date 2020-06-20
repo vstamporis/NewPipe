@@ -77,6 +77,8 @@ import org.schabi.newpipe.util.TLSSocketFactoryCompat;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.views.FocusOverlayView;
 
+import java.io.File;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -455,6 +457,17 @@ public class MainActivity extends AppCompatActivity {
         if (!isChangingConfigurations()) {
             StateSaver.clearStateFiles();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            Class<?> emmaRTClass = Class.forName("com.vladium.emma.rt.RT");
+            Method dumpCoverageMethod = emmaRTClass.
+                    getMethod("dumpCoverageData", File.class, boolean.class, boolean.class);
+            dumpCoverageMethod.invoke(null, new File("sdcard/coverage.exec"), false, false);
+        } catch (Exception e) { }
     }
 
     @Override
